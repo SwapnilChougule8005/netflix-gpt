@@ -6,7 +6,7 @@ import { auth } from "../utils/firebase";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { addUser } from "../utils/userSLice";
-import { USER_AVATAR } from "../utils/constants";
+import { BG_URL, USER_AVATAR } from "../utils/constants";
 const Login = () => { 
     const [isSignInForm, setIsSignInForm ] = useState(true);
     const [ errorMessage, setErrorMessage ] = useState(null);
@@ -77,7 +77,8 @@ const Login = () => {
             <div className="absolute">
                 <img 
                 alt="bg-img" 
-                src="https://cdn.cookielaw.org/logos/dd6b162f-1a32-456a-9cfe-897231c7763c/4345ea78-053c-46d2-b11e-09adaef973dc/Netflix_Logo_PMS.png" />
+                src={BG_URL}
+                />
             </div>
             <form 
             onSubmit={(e) => e.preventDefault()}
