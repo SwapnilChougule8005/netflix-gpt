@@ -1,43 +1,24 @@
-/*import { useSelector } from "react-redux";
-import MovieList from "./MovieList";
-
-const SecondaryContainer = ({movieId}) => {
-
-    const movies = useSelector((store) => store.movies);
-    
-    return (
-        <div>
-            <MovieList title={"Now Playing"} movies={movies.nowPlayingMovies}/>
-        </div>
-    )
-}
-
-export default SecondaryContainer;*/
-
 import { useSelector } from "react-redux";
 import MovieList from "./MovieList";
 
 const SecondaryContainer = () => {
+  const movies = useSelector((store) => store.movies);
 
-    const movies = useSelector((store) => store.movies);
-
-    // Ensure `nowPlayingMovies` is an array or provide a fallback empty array
-    //const nowPlayingMovies = movies && Array.isArray(movies.nowPlayingMovies) ? movies.nowPlayingMovies : [];
-
-    return (
-        movies.nowPlayingMovies &&
-( 
-        <div className="bg-black">
-            <div className="-mt-52 pl-12 relative z-20">
-            <MovieList title={"Now Playing"} movies={movies.nowPlayingMovies} />
-            <MovieList title={"Trading"} movies={movies.nowPlayingMovies} />
-            <MovieList title={"Popular"} movies={movies.popularMovies} />
-            <MovieList title={"Upcoming Movies"} movies={movies.nowPlayingMovies} />
-            </div>
-            <MovieList title={"Horror"} movies={movies.nowPlayingMovies} />
+  return (
+    movies.nowPlayingMovies && (
+      <div className="bg-black">
+        <div className=" mt-0 md:-mt-52 pl-4 md:pl-12 relative z-20">
+          <MovieList title={"Now Playing"} movies={movies.nowPlayingMovies} />
+          <MovieList title={"Trending"} movies={movies.nowPlayingMovies} />
+          <MovieList title={"Popular"} movies={movies.popularMovies} />
+          <MovieList
+            title={"Upcoming Movies"}
+            movies={movies.nowPlayingMovies}
+          />
+          <MovieList title={"Horror"} movies={movies.nowPlayingMovies} />
         </div>
+      </div>
     )
   );
 };
-
 export default SecondaryContainer;

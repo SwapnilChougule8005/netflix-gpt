@@ -12,6 +12,7 @@ const Browse = () => {
        
     useNowPlayingMovies();
     usePopularMovies();
+    
     return (
         <div>
             <Header/>

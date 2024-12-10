@@ -10,7 +10,7 @@ import { toggleGptSearchView } from "../utils/gptSlice";
 import { changeLanguage } from "../utils/configSlice";
 
 const Header = () => {
-    const dispatch = useDispatch()
+    const dispatch = useDispatch();
     const navigate = useNavigate();
     const user = useSelector(store => store.user);
 
@@ -45,7 +45,7 @@ const Header = () => {
 
      const handleGptSearchClick = () => {
         // Toggle GPT Search
-        dispatch(toggleGptSearchView())
+        dispatch(toggleGptSearchView());
      }
 
      const handleLanguageChange = (event) => {
@@ -53,9 +53,9 @@ const Header = () => {
      }
 
     return (
-        <div className=" w-screen absolute px-8 py-2 bg-gradient-to-b from-black z-10 flex justify-between ">
+        <div className=" w-screen absolute px-8 py-2 bg-gradient-to-b from-black z-10 flex flex-col md:flex-row justify-between  ">
             <img 
-            className="w-44"
+            className="w-44 mx-auto md:mx-0"
             alt="logo" src={LOGO}
             />
            {
@@ -77,9 +77,9 @@ const Header = () => {
               
             >{ showGptSearch ? "Homepage" : "Gpt Search"}</button>    
             <img 
-            className="w-12 h-12 "
-            alt="usericon" 
-            src= {user?.photoURL} 
+              className="w-12 h-12 "
+              alt="usericon" 
+              src= {user?.photoURL} 
             />
             <button onClick={handleSignOut} className="font-bold text-white">Sign Out</button>
         </div>
